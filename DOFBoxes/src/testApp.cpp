@@ -14,6 +14,8 @@
 
 ofColor bgColorOne, bgColorTwo;
 
+int cubeSize = 10;
+
 void testApp::shuffleBoxes() {
     for(int i = 0; i < boxes.size(); i++) {
         boxes[i].setPosition(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()), ofRandom(-1000, 1000));
@@ -23,7 +25,9 @@ void testApp::shuffleBoxes() {
 //--------------------------------------------------------------
 void testApp::setup(){
 
-//    depthOfField.setup(ofGetWidth(), ofGetHeight());
+    ofSetDataPathRoot("../Resources/data/");
+    
+    depthOfField.setup(ofGetScreenWidth(), ofGetScreenHeight());
     
     // Setup post-processing chain
 //    post.init(ofGetWidth(), ofGetHeight());
@@ -63,11 +67,26 @@ void testApp::setup(){
     // the light highlight of the material //
 	material.setSpecularColor(ofColor(255, 255, 255, 255));
     
-    boxes.assign(100, ofBoxPrimitive());
+    boxes.assign(2000, ofBoxPrimitive(cubeSize, cubeSize, cubeSize));
     
     shuffleBoxes();
     
 //    cam.begin();
+    
+    ofEnableAlphaBlending();
+    
+    vector<string> words;
+    words.push_back("news");
+    words.push_back("today");
+    words.push_back("data");
+    
+    // Init ofxSpeech
+    recognizer.initRecognizer();
+    recognizer.loadDictionary(words);
+    ofAddListener(recognizer.speechRecognizedEvent, this, &testApp::speechRecognized);
+    recognizer.startListening();
+    
+    synthesizer.initSynthesizer("Alex");
 }
 
 //--------------------------------------------------------------
@@ -77,6 +96,8 @@ void testApp::update(){
     
     //swim the depth of field
 //	depthOfField.setFocalDistance(ofMap(sin(ofGetElapsedTimef()/2),-1,1, 20, 150));
+    depthOfField.setFocalRange(100.0);
+    depthOfField.setBlurAmount(2.0);
     
     pointLight.setPosition((ofGetWidth()*.5)+ cos(ofGetElapsedTimef()*.5)*(ofGetWidth()*.3), ofGetHeight()/2, 500);
     pointLight2.setPosition((ofGetWidth()*.5)+ cos(ofGetElapsedTimef()*.15)*(ofGetWidth()*.3),
@@ -87,7 +108,6 @@ void testApp::update(){
                             sin(ofGetElapsedTimef()*1.5f) * ofGetWidth()*.5,
                             cos(ofGetElapsedTimef()*.2) * ofGetWidth()
                             );
-
 }
 
 //--------------------------------------------------------------
@@ -97,16 +117,15 @@ void testApp::draw(){
     
 //    post.begin();
 
-//    depthOfField.begin();
-//	camera.begin(depthOfField.getDimensions());
-    camera.begin();
+    depthOfField.begin();
+	camera.begin(depthOfField.getDimensions());
     
     ofEnableLighting();
     pointLight.enable();
     pointLight2.enable();
     pointLight3.enable();
     
-    ofBackgroundGradient(bgColorOne, bgColorTwo, OF_GRADIENT_CIRCULAR);
+//    ofBackgroundGradient(bgColorOne, bgColorTwo, OF_GRADIENT_CIRCULAR);
     
     ofFill();
     ofSetColor(200, 100, 200);
@@ -128,27 +147,49 @@ void testApp::draw(){
     ofSetColor(pointLight.getDiffuseColor());
     ofSetColor(pointLight2.getDiffuseColor());
     ofSetColor(pointLight3.getDiffuseColor());
-    
-//    post.end();
 
     camera.end();
-	
-//	depthOfField.end();
-//    
-//	if(ofGetKeyPressed('f')){
-//		depthOfField.drawFocusAssist(0, 0);
-//	}
-//	else{
-//		depthOfField.getFbo().draw(0, 0);
-//	}
-
-	mainOutputSyphonServer.publishScreen();
+	depthOfField.end();
+//    post.end();
+    
+	if(ofGetKeyPressed('f')){
+		depthOfField.drawFocusAssist(0, 0);
+	} else{
+		depthOfField.getFbo().draw(0, 0);
+	}
+    
+//	mainOutputSyphonServer.publishScreen();
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 //    unsigned idx = key - '0';
 //    if (idx < post.size()) post[idx]->setEnabled(!post[idx]->getEnabled());
+
+    if(key == 'r') {
+        shuffleBoxes();
+//        synthesizer.speakPhrase("shuffling");
+        synthesizer.speakPhrase(std::string("shuffling"));
+    }
+}
+
+// ofxSpeech event handling
+void testApp::speechRecognized(string & wordRecognized)
+{
+    if(wordRecognized == "news") {
+        ofBackground(255, 0, 0);
+        synthesizer.speakPhrase("here is your news.");
+    }
+    
+    if(wordRecognized == "today") {
+        ofBackground(0, 255, 0);
+        synthesizer.speakPhrase("here is what your day is like.");
+    }
+    
+    if(wordRecognized == "data") {
+        ofBackground(0, 0, 255);
+        synthesizer.speakPhrase("i will read out your data for today.");
+    }
 }
 
 //--------------------------------------------------------------
@@ -168,7 +209,7 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-//    shuffleBoxes();
+
 }
 
 //--------------------------------------------------------------
@@ -189,4 +230,9 @@ void testApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+testApp::~testApp() {
+    synthesizer.stopSpeaking();
+    recognizer.stopListening();
 }

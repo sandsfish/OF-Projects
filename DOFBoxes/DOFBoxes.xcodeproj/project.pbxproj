@@ -13,6 +13,9 @@
 		8632F7BB188340EB00ACF477 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8632F7B1188340EB00ACF477 /* ofxSyphonServer.mm */; };
 		8632F7BC188340EB00ACF477 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8632F7B3188340EB00ACF477 /* ofxSyphonServerDirectory.mm */; };
 		8632F7C31883411000ACF477 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8632F7A7188340EB00ACF477 /* Syphon.framework */; };
+		864236E0188BA9C800CDB63C /* ofxSpeechRecognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 864236DC188BA9C800CDB63C /* ofxSpeechRecognizer.cpp */; };
+		864236E1188BA9C800CDB63C /* ofxSpeechSynthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 864236DE188BA9C800CDB63C /* ofxSpeechSynthesizer.cpp */; };
+		8644299F188C70F7000802E1 /* ofxDOF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8644299D188C70F7000802E1 /* ofxDOF.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -134,10 +137,16 @@
 		8632F8061883487800ACF477 /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerticalTiltShifPass.h; sourceTree = "<group>"; };
 		8632F8071883487800ACF477 /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomBlurPass.cpp; sourceTree = "<group>"; };
 		8632F8081883487800ACF477 /* ZoomBlurPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomBlurPass.h; sourceTree = "<group>"; };
-		8632F80E188361F700ACF477 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		8632F821188361F700ACF477 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		8632F823188361F700ACF477 /* ofxDOF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofxDOF.cpp; path = ../../../../addons/ofxDOF/src/ofxDOF.cpp; sourceTree = "<group>"; };
 		8632F824188361F700ACF477 /* ofxDOF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxDOF.h; path = ../../../../addons/ofxDOF/src/ofxDOF.h; sourceTree = "<group>"; };
+		864236DB188BA9C800CDB63C /* ofxSpeech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxSpeech.h; path = ../../../addons/ofxSpeech/src/ofxSpeech.h; sourceTree = "<group>"; };
+		864236DC188BA9C800CDB63C /* ofxSpeechRecognizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxSpeechRecognizer.cpp; path = ../../../addons/ofxSpeech/src/ofxSpeechRecognizer.cpp; sourceTree = "<group>"; };
+		864236DD188BA9C800CDB63C /* ofxSpeechRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxSpeechRecognizer.h; path = ../../../addons/ofxSpeech/src/ofxSpeechRecognizer.h; sourceTree = "<group>"; };
+		864236DE188BA9C800CDB63C /* ofxSpeechSynthesizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxSpeechSynthesizer.cpp; path = ../../../addons/ofxSpeech/src/ofxSpeechSynthesizer.cpp; sourceTree = "<group>"; };
+		864236DF188BA9C800CDB63C /* ofxSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxSpeechSynthesizer.h; path = ../../../addons/ofxSpeech/src/ofxSpeechSynthesizer.h; sourceTree = "<group>"; };
+		8644299D188C70F7000802E1 /* ofxDOF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxDOF.cpp; path = ../../../../addons/ofxDOF/src/ofxDOF.cpp; sourceTree = "<group>"; };
+		8644299E188C70F7000802E1 /* ofxDOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxDOF.h; path = ../../../../addons/ofxDOF/src/ofxDOF.h; sourceTree = "<group>"; };
+		8699A6AD188C9CB900CA3A5C /* SpeechSynthesis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechSynthesis.framework; path = ../../../../../../../../../System/Library/Frameworks/ApplicationServices.framework/Frameworks/SpeechSynthesis.framework; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -332,28 +341,14 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		8632F80D188361F700ACF477 /* ofxDOF */ = {
-			isa = PBXGroup;
-			children = (
-				8632F80E188361F700ACF477 /* .gitignore */,
-				8632F821188361F700ACF477 /* README.md */,
-				8632F822188361F700ACF477 /* src */,
-			);
-			name = ofxDOF;
-			path = ../../../addons/ofxDOF;
-			sourceTree = "<group>";
-		};
-		8632F822188361F700ACF477 /* src */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				8632F80D188361F700ACF477 /* ofxDOF */,
+				864236DB188BA9C800CDB63C /* ofxSpeech.h */,
+				864236DC188BA9C800CDB63C /* ofxSpeechRecognizer.cpp */,
+				864236DD188BA9C800CDB63C /* ofxSpeechRecognizer.h */,
+				864236DE188BA9C800CDB63C /* ofxSpeechSynthesizer.cpp */,
+				864236DF188BA9C800CDB63C /* ofxSpeechSynthesizer.h */,
 				8632F7C41883487700ACF477 /* ofxPostProcessing */,
 				8632F78B188340EA00ACF477 /* ofxSyphon */,
 			);
@@ -410,6 +405,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				8699A6AD188C9CB900CA3A5C /* SpeechSynthesis.framework */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
@@ -423,6 +419,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				8644299D188C70F7000802E1 /* ofxDOF.cpp */,
+				8644299E188C70F7000802E1 /* ofxDOF.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				8632F823188361F700ACF477 /* ofxDOF.cpp */,
 				8632F824188361F700ACF477 /* ofxDOF.h */,
@@ -519,7 +517,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -f \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n";
+			shellScript = "cp -f ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -f \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -r bin/data \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\";";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -532,7 +530,10 @@
 				8632F7BC188340EB00ACF477 /* ofxSyphonServerDirectory.mm in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				8632F7B9188340EB00ACF477 /* SyphonNameboundClient.m in Sources */,
+				864236E0188BA9C800CDB63C /* ofxSpeechRecognizer.cpp in Sources */,
 				8632F7BB188340EB00ACF477 /* ofxSyphonServer.mm in Sources */,
+				8644299F188C70F7000802E1 /* ofxDOF.cpp in Sources */,
+				864236E1188BA9C800CDB63C /* ofxSpeechSynthesizer.cpp in Sources */,
 				8632F7BA188340EB00ACF477 /* ofxSyphonClient.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +627,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/sands/GoogleDrive/NewMedia/openFrameworks/of_v0.8.0_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Frameworks",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -699,7 +701,9 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = DOFBoxesDebug;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -713,6 +717,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/sands/GoogleDrive/NewMedia/openFrameworks/of_v0.8.0_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Frameworks",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -785,7 +790,9 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = DOFBoxes;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,16 +1,19 @@
 #pragma once
 
 #include "ofMain.h"
-//#include "ofxPostProcessing.h"
+#include "ofxPostProcessing.h"
 #include "ofxSyphon.h"
 #include "ofxDOF.h"
+#include "ofxSpeech.h"
 
 class testApp : public ofBaseApp{
 	public:
 		void setup();
 		void update();
 		void draw();
-		
+	
+        ~testApp();
+    
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y);
@@ -29,7 +32,7 @@ class testApp : public ofBaseApp{
         ofLight pointLight3;
         ofMaterial material;
     
-//        ofxDOF depthOfField;
+        ofxDOF depthOfField;
         ofEasyCam camera;
     
         // For Syphon Recording
@@ -38,4 +41,9 @@ class testApp : public ofBaseApp{
     
         // For Post-Processing
 //        ofxPostProcessing post;
+    
+        // ofxSpeech Setup
+        void speechRecognized(string & wordRecognized);
+        ofxSpeechRecognizer recognizer;
+        ofxSpeechSynthesizer synthesizer;
 };

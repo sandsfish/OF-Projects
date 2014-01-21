@@ -14,7 +14,11 @@
 
 ofColor bgColorOne, bgColorTwo;
 
-int cubeSize = 10;
+int cubeSize = 2;
+float zPos = -1050.f;
+float zPosMult = 0.5f;
+float noiseX = 0.01f;
+float noiseY = 0.05f;
 
 void testApp::shuffleBoxes() {
     for(int i = 0; i < boxes.size(); i++) {
@@ -67,7 +71,16 @@ void testApp::setup(){
     // the light highlight of the material //
 	material.setSpecularColor(ofColor(255, 255, 255, 255));
     
-    boxes.assign(2000, ofBoxPrimitive(cubeSize, cubeSize, cubeSize));
+    boxes.assign(2000, ofBoxPrimitive(2, 10, 75));
+    
+    for(int i = 0; i < boxes.size(); i++) {
+        float spinX = sin(ofGetElapsedTimef()*.35f) + ofRandom(200.f);
+        float spinY = cos(ofGetElapsedTimef()*.075f) + ofRandom(200.f);
+        
+        boxes[i].rotate(spinX, 1.0, 0.0, 0.0);
+        boxes[i].rotate(spinY, 0, 1.0, 0.0);
+    }
+
     
     shuffleBoxes();
     
@@ -83,7 +96,7 @@ void testApp::setup(){
     // Init ofxSpeech
     recognizer.initRecognizer();
     recognizer.loadDictionary(words);
-    ofAddListener(recognizer.speechRecognizedEvent, this, &testApp::speechRecognized);
+//    ofAddListener(recognizer.speechRecognizedEvent, this, &testApp::speechRecognized);
     recognizer.startListening();
     
     synthesizer.initSynthesizer("Alex");
@@ -108,6 +121,10 @@ void testApp::update(){
                             sin(ofGetElapsedTimef()*1.5f) * ofGetWidth()*.5,
                             cos(ofGetElapsedTimef()*.2) * ofGetWidth()
                             );
+    zPosMult *= 1.004;
+    zPos += zPosMult;
+
+    camera.setPosition(ofPoint(ofGetWidth()/2, ofGetHeight()/2, zPos));
 }
 
 //--------------------------------------------------------------
@@ -133,8 +150,24 @@ void testApp::draw(){
     material.begin();
     
     for(int i = 0; i < boxes.size(); i++) {
-        float spinX = sin(ofGetElapsedTimef()*.35f) + ofRandom(0.5);
-        float spinY = cos(ofGetElapsedTimef()*.075f) + ofRandom(0.5);
+//        float spinX = sin(ofGetElapsedTimef()*.35f);
+//        float spinY = cos(ofGetElapsedTimef()*.075f);
+        
+        noiseX += 0.05f;
+        noiseY += 0.03f;
+
+        float spinX, spinY;
+        
+        if(ofRandom(1) > 0.3) {
+            spinX = sin(ofGetElapsedTimef()*.85f)*8;
+            spinY = cos(ofGetElapsedTimef()*.175f)*9;
+        } else if(ofRandom(1) > 0.6) {
+            spinX = sin(ofGetElapsedTimef()*.85f)*10;
+            spinY = cos(ofGetElapsedTimef()*.175f)*11;
+        } else {
+            spinX = sin(ofGetElapsedTimef()*.85f)*12;
+            spinY = cos(ofGetElapsedTimef()*.175f)*13;
+        }
         
         boxes[i].rotate(spinX, 1.0, 0.0, 0.0);
         boxes[i].rotate(spinY, 0, 1.0, 0.0);
